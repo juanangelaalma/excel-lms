@@ -1,0 +1,71 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    /* Primary Brand Colors (Duolingo-style) */
+    --duo-green: #58CC02;
+    --duo-blue: #1CB0F6;
+    --duo-orange: #FF9600;
+    --duo-purple: #CE82FF;
+    --excel-green: #107C41;
+    
+    /* Backgrounds */
+    --bg-primary: #FFFFFF;
+    --bg-secondary: #F7F7F7;
+    --bg-accent: #FFF9E5;
+    --bg-success: #E8F5E9;
+    --bg-error: #FFEBEE;
+    
+    /* Text Colors */
+    --text-primary: #3C3C3C;
+    --text-secondary: #777777;
+    --text-disabled: #AFAFAF;
+    --text-white: #FFFFFF;
+    
+    /* Feedback Colors */
+    --success: #58CC02;
+    --error: #FF4B4B;
+    --warning: #FFC800;
+    --info: #1CB0F6;
+    
+    /* Locked/Disabled States */
+    --locked-bg: #E5E5E5;
+    --locked-text: #AFAFAF;
+    --locked-border: #D1D1D1;
+    
+    /* Shadows */
+    --shadow-sm: 0 2px 4px rgba(0, 0, 0, 0.06);
+    --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.08);
+    --shadow-success: 0 4px 12px rgba(88, 204, 2, 0.15);
+    --shadow-hover: 0 8px 20px rgba(0, 0, 0, 0.12);
+  }
+  
+  * {
+    border-color: theme('colors.gray.200');
+  }
+  
+  body {
+    @apply bg-bg-primary text-text-primary;
+    font-family: 'Inter', 'Open Sans', system-ui, sans-serif;
+    font-size: 16px;
+    line-height: 1.6;
+  }
+  
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Nunito', 'DIN Rounded', 'Quicksand', sans-serif;
+    font-weight: 700;
+  }
+  
+  h1 { @apply text-5xl font-extrabold; }
+  h2 { @apply text-3xl font-bold; }
+  h3 { @apply text-2xl font-bold; }
+  h4 { @apply text-xl font-semibold; }
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+}
