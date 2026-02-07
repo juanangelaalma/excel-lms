@@ -9,7 +9,7 @@ export function triggerConfetti() {
         return Math.random() * (max - min) + min
     }
 
-    const interval: NodeJS.Timeout = setInterval(function () {
+    const interval: ReturnType<typeof setInterval> = setInterval(function () {
         const timeLeft = animationEnd - Date.now()
 
         if (timeLeft <= 0) {

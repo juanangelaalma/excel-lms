@@ -1,11 +1,6 @@
 import { cn } from '@/lib/utils'
 import { Info, Lightbulb, AlertTriangle, CheckCircle } from 'lucide-react'
-
-interface TipBoxProps {
-    children: React.ReactNode
-    variant?: 'tip' | 'info' | 'warning' | 'success'
-    className?: string
-}
+import { TipBoxProps } from '@/types'
 
 export function TipBox({ children, variant = 'tip', className }: TipBoxProps) {
     const variants = {

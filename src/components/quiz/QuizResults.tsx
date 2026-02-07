@@ -2,13 +2,12 @@ import { motion } from 'framer-motion'
 import { useNavigate } from 'react-router-dom'
 import { Button } from '@/components/ui/Button'
 import ExelMascot from '@/components/mascot/ExelMascot'
-import { Trophy, Star, Clock, Target } from 'lucide-react'
+import { Trophy, Star, Target } from 'lucide-react'
 
 interface QuizResultsProps {
     score: number
     totalQuestions: number
     passed: boolean
-    timeSpent?: number
     onRetry: () => void
     onContinue: () => void
 }
@@ -17,7 +16,6 @@ export function QuizResults({
     score,
     totalQuestions,
     passed,
-    timeSpent,
     onRetry,
     onContinue
 }: QuizResultsProps) {

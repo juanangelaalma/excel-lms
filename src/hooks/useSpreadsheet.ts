@@ -1,5 +1,5 @@
-import { useState, useEffect } from 'react'
-import { HyperFormula } from 'hyperformula'
+import { useState } from 'react'
+import { HyperFormula, DetailedCellError } from 'hyperformula'
 
 export interface SpreadsheetData {
     hf: HyperFormula
@@ -10,10 +10,12 @@ export function useSpreadsheet(initialData: (string | number | null)[][]) {
     const [hf] = useState(() => HyperFormula.buildEmpty({
         licenseKey: 'gpl-v3',
     }))
-    const [sheetId] = useState(() => {
-        const id = hf.addSheet('Sheet1')
-        hf.setSheetContent(id, initialData)
-        return id
+    const [sheetId] = useState<number>(() => {
+        const name = 'Sheet1'
+        hf.addSheet(name)
+        const numericSheetId = hf.getSheetId(name)! // Non-null assertion
+        hf.setSheetContent(numericSheetId, initialData) // Use numeric ID
+        return numericSheetId
     })
 
     const setCellValue = (row: number, col: number, value: string | number) => {
@@ -24,7 +26,7 @@ export function useSpreadsheet(initialData: (string | number | null)[][]) {
         }
     }
 
-    const getCellValue = (row: number, col: number): string | number | null => {
+    const getCellValue = (row: number, col: number): string | number | boolean | null | undefined | DetailedCellError => {
         try {
             const value = hf.getCellValue({ sheet: sheetId, row, col })
             return value

@@ -1,15 +1,8 @@
-import { ReactNode } from 'react'
 import { TipBox } from './TipBox'
 import { CodeBlock } from './CodeBlock'
+import { Slide } from '@/types' // Import Slide from '@/types'
 
-export interface Slide {
-    id: number
-    type: 'title' | 'content' | 'example' | 'tip' | 'practice' | 'transition'
-    title?: string
-    content?: ReactNode
-    examples?: { formula: string; description: string }[]
-    tips?: ReactNode[]
-}
+// No local Slide interface definition needed anymore
 
 interface SlideContentProps {
     slide: Slide

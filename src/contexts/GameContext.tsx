@@ -1,4 +1,4 @@
-import React, { createContext, useContext, useState, useEffect, ReactNode } from 'react'
+import { createContext, useContext, useState, useEffect, ReactNode } from 'react'
 
 interface UserProfile {
     name: string
@@ -166,7 +166,6 @@ export function GameProvider({ children }: { children: ReactNode }) {
 
     const completePertemuan = (pertemuanId: number, quizScore: number) => {
         setGameState((prev) => {
-            const xp = quizScore >= 90 ? 100 : 50
             const completed = [...prev.progress.completedPertemuan, pertemuanId]
 
             return {

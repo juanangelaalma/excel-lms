@@ -40,7 +40,7 @@ export const pertemuan02Slides: Slide[] = [
                     <p className="text-xs text-text-secondary">Format jam menit detik</p>
                 </div>
             </div>
-            <TipBox type="tip">
+            <TipBox variant="tip">
                 Jika angka dimulai dengan ' (petik), Excel akan treat sebagai text!
             </TipBox>
         </div>
@@ -58,7 +58,7 @@ export const pertemuan02Slides: Slide[] = [
                 <li><strong>Percentage:</strong> 75% (angka 0.75 ditampilkan sebagai 75%)</li>
                 <li><strong>Accounting:</strong> Rp 1,234.50 (aligned dengan simbol currency)</li>
             </ul>
-            <TipBox type="info">
+            <TipBox variant="info">
                 Akses via Home Tab → Number group atau Ctrl + 1
             </TipBox>
         </div>
@@ -83,7 +83,7 @@ export const pertemuan02Slides: Slide[] = [
                     <span className="text-text-secondary">→ Long format</span>
                 </div>
             </div>
-            <TipBox type="warning">
+            <TipBox variant="warning">
                 Excel menyimpan tanggal sebagai angka! 1 = 1 Januari 1900
             </TipBox>
         </div>
@@ -106,7 +106,7 @@ export const pertemuan02Slides: Slide[] = [
                 <li>Middle</li>
                 <li>Bottom</li>
             </ul>
-            <TipBox type="tip">
+            <TipBox variant="tip">
                 Gunakan "Wrap Text" untuk membuat text multi-line dalam 1 cell!
             </TipBox>
         </div>
@@ -152,7 +152,7 @@ export const pertemuan02Slides: Slide[] = [
                 <li><strong>Top/Bottom Border:</strong> Garis horizontal saja</li>
                 <li><strong>Left/Right Border:</strong> Garis vertikal saja</li>
             </ul>
-            <TipBox type="tip">
+            <TipBox variant="tip">
                 Akses cepat: Alt + H → B untuk border options
             </TipBox>
         </div>
@@ -173,7 +173,7 @@ export const pertemuan02Slides: Slide[] = [
                     <p className="text-sm">Warna text/numbers</p>
                 </div>
             </div>
-            <TipBox type="info">
+            <TipBox variant="info">
                 Gunakan color coding untuk kategorisasi data (hijau = approved, merah = rejected)
             </TipBox>
         </div>
@@ -189,7 +189,7 @@ export const pertemuan02Slides: Slide[] = [
                 <li>Klik Format Painter (🖌️ icon di Home tab)</li>
                 <li>Klik atau drag pada cell target</li>
             </ol>
-            <TipBox type="tip">
+            <TipBox variant="tip">
                 Double-click Format Painter untuk apply ke multiple cells!
             </TipBox>
         </div>
@@ -226,7 +226,7 @@ export const pertemuan02Slides: Slide[] = [
                 <li><strong>Auto-fit:</strong> Double-click border untuk auto-size</li>
                 <li><strong>Set specific size:</strong> Right-click header → Column Width / Row Height</li>
             </ul>
-            <TipBox type="tip">
+            <TipBox variant="tip">
                 Select semua cells (Ctrl+A) lalu auto-fit untuk resize semua columns sekaligus!
             </TipBox>
         </div>
@@ -248,7 +248,7 @@ export const pertemuan02Slides: Slide[] = [
                 <li><strong>Merge Cells:</strong> Gabung tanpa center</li>
                 <li><strong>Unmerge:</strong> Pisahkan kembali</li>
             </ul>
-            <TipBox type="warning">
+            <TipBox variant="warning">
                 Merge cells bisa bikin formula error! Pakai dengan hati-hati.
             </TipBox>
         </div>
@@ -270,7 +270,7 @@ export const pertemuan02Slides: Slide[] = [
                     <li>Merge cells & resize</li>
                 </ul>
             </div>
-            <TipBox type="success">
+            <TipBox variant="success">
                 Formatting yang baik = Data lebih mudah dibaca = Keputusan lebih cepat! 📊
             </TipBox>
         </div>

@@ -24,7 +24,7 @@ export const pertemuan04Slides: Slide[] = [
                 <li>❌ Jika stok &lt; 10, maka "Reorder"</li>
                 <li>🎯 Jika penjualan &gt; target AND kualitas bagus, maka "Bonus"</li>
             </ul>
-            <TipBox type="success">
+            <TipBox variant="success">
                 Logical functions = otomatisasi pengambilan keputusan!
             </TipBox>
         </div>
@@ -52,7 +52,7 @@ export const pertemuan04Slides: Slide[] = [
             <p>IF bisa mengembalikan angka juga:</p>
             <CodeBlock code='=IF(B1 > 100000, B1 * 0.1, 0)' />
             <p className="text-sm text-text-secondary">Bonus 10% jika penjualan &gt; 100,000, kalau tidak dapat 0</p>
-            <TipBox type="tip">
+            <TipBox variant="tip">
                 Pakai quotes ("...") untuk text, tanpa quotes untuk angka!
             </TipBox>
         </div>
@@ -86,7 +86,7 @@ export const pertemuan04Slides: Slide[] = [
                 <p className="text-sm"><strong>A1=80, B1=60:</strong> → FALSE ❌</p>
                 <p className="text-sm"><strong>A1=60, B1=60:</strong> → FALSE ❌</p>
             </div>
-            <TipBox type="info">
+            <TipBox variant="info">
                 SEMUA kondisi harus TRUE → hasil TRUE
             </TipBox>
         </div>
@@ -103,7 +103,7 @@ export const pertemuan04Slides: Slide[] = [
                 <p className="text-sm"><strong>A1=80, B1=80:</strong> → TRUE ✅</p>
                 <p className="text-sm"><strong>A1=60, B1=60:</strong> → FALSE ❌</p>
             </div>
-            <TipBox type="info">
+            <TipBox variant="info">
                 SALAH SATU kondisi TRUE → hasil TRUE
             </TipBox>
         </div>
@@ -136,7 +136,7 @@ export const pertemuan04Slides: Slide[] = [
             <p>Handle error dengan IFERROR:</p>
             <CodeBlock code='=IFERROR(A1/B1, "Error: Tidak bisa bagi dengan 0")' />
             <p className="text-sm">Jika B1 = 0, akan muncul pesan error, bukan #DIV/0!</p>
-            <TipBox type="warning">
+            <TipBox variant="warning">
                 Gunakan IFERROR untuk membuat spreadsheet lebih user-friendly!
             </TipBox>
         </div>
@@ -172,7 +172,7 @@ export const pertemuan04Slides: Slide[] = [
                     <li>IFERROR untuk handle errors</li>
                 </ul>
             </div>
-            <TipBox type="success">
+            <TipBox variant="success">
                 Sekarang Excel bisa membuat keputusan otomatis untuk Anda! 🧠
             </TipBox>
         </div>

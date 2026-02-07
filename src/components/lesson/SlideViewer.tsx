@@ -1,7 +1,8 @@
-import { useState, useEffect, useRef } from 'react'
+import { useState, useEffect, useRef, useCallback } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { ChevronLeft, ChevronRight, Maximize2, Minimize2 } from 'lucide-react'
-import { SlideContent, Slide } from './SlideContent'
+import { SlideContent } from './SlideContent'
+import { Slide } from '@/types'
 import { Button } from '@/components/ui/Button'
 import { Progress } from '@/components/ui/Progress'
 
@@ -20,22 +21,22 @@ export function SlideViewer({ slides, onComplete, onSlideChange }: SlideViewerPr
     const totalSlides = slides.length
     const progress = ((currentSlide + 1) / totalSlides) * 100
 
-    const goToNextSlide = () => {
+    const goToNextSlide = useCallback(() => {
         if (currentSlide < totalSlides - 1) {
             setDirection(1)
             setCurrentSlide(currentSlide + 1)
         }
-    }
+    }, [currentSlide, totalSlides])
 
-    const goToPreviousSlide = () => {
+    const goToPreviousSlide = useCallback(() => {
         if (currentSlide > 0) {
             setDirection(-1)
             setCurrentSlide(currentSlide - 1)
         }
-    }
+    }, [currentSlide])
 
     // Fullscreen toggle
-    const toggleFullscreen = async () => {
+    const toggleFullscreen = useCallback(async () => {
         if (!document.fullscreenElement) {
             await containerRef.current?.requestFullscreen()
             setIsFullscreen(true)
@@ -43,7 +44,7 @@ export function SlideViewer({ slides, onComplete, onSlideChange }: SlideViewerPr
             await document.exitFullscreen()
             setIsFullscreen(false)
         }
-    }
+    }, [])
 
     // Listen for fullscreen changes (e.g., ESC key)
     useEffect(() => {
@@ -65,7 +66,7 @@ export function SlideViewer({ slides, onComplete, onSlideChange }: SlideViewerPr
 
         window.addEventListener('keydown', handleKeyPress)
         return () => window.removeEventListener('keydown', handleKeyPress)
-    }, [currentSlide])
+    }, [currentSlide, goToNextSlide, goToPreviousSlide, toggleFullscreen])
 
     // Notify parent of slide changes
     useEffect(() => {

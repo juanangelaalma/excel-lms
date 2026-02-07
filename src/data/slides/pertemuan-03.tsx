@@ -1,4 +1,4 @@
-import { Slide } from '@/components/lesson/SlideContent'
+import { Slide } from '@/types'
 
 export const pertemuan03Slides: Slide[] = [
     // Slide 1: Title

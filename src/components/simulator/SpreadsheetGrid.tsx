@@ -61,7 +61,7 @@ export function SpreadsheetGrid({
                 <thead>
                     <tr>
                         <th className="bg-gray-200 border border-gray-300 p-0 w-12 sticky left-0 z-10"></th>
-                        {COLUMNS.slice(0, Math.max(10, data[0]?.length || 10)).map((col, index) => (
+                        {COLUMNS.slice(0, Math.max(10, data[0]?.length || 10)).map((col) => (
                             <th
                                 key={col}
                                 className="bg-gray-200 border border-gray-300 px-4 py-2 text-sm font-semibold text-center min-w-[100px]"

@@ -9,7 +9,7 @@ import { pertemuan01Slides } from '@/data/slides/pertemuan-01'
 import { pertemuan02Slides } from '@/data/slides/pertemuan-02'
 import { pertemuan03Slides } from '@/data/slides/pertemuan-03'
 import { pertemuan04Slides } from '@/data/slides/pertemuan-04'
-import { Slide } from '@/components/lesson/SlideContent'
+import { Slide } from '@/types'
 
 // Slide data registry - add more as you create them
 const slideRegistry: Record<number, Slide[]> = {

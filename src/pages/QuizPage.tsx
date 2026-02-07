@@ -1,5 +1,5 @@
 import { useParams, useNavigate } from 'react-router-dom'
-import { useState, useEffect } from 'react'
+import { useState } from 'react'
 import { motion } from 'framer-motion'
 import Header from '@/components/layout/Header'
 import MobileNav from '@/components/layout/MobileNav'
@@ -39,7 +39,6 @@ export default function QuizPage() {
     const [showFeedback, setShowFeedback] = useState(false)
     const [correctAnswers, setCorrectAnswers] = useState(0)
     const [quizComplete, setQuizComplete] = useState(false)
-    const [startTime] = useState(Date.now())
 
     const currentQuestion = quiz?.[currentQuestionIndex]
     const progress = quiz ? ((currentQuestionIndex + 1) / quiz.length) * 100 : 0
@@ -90,7 +89,7 @@ export default function QuizPage() {
             addXP(xp)
 
             // Complete pertemuan and unlock next
-            completePertemuan(pertemuanId)
+            completePertemuan(pertemuanId, percentage)
 
             // Trigger confetti
             triggerConfetti()
@@ -148,7 +147,6 @@ export default function QuizPage() {
     if (quizComplete) {
         const percentage = Math.round((correctAnswers / quiz.length) * 100)
         const passed = percentage >= 70
-        const timeSpent = Math.floor((Date.now() - startTime) / 1000 / 60) // minutes
 
         return (
             <div className="min-h-screen bg-bg-secondary">
@@ -158,7 +156,7 @@ export default function QuizPage() {
                         score={correctAnswers}
                         totalQuestions={quiz.length}
                         passed={passed}
-                        timeSpent={timeSpent}
+
                         onRetry={handleRetry}
                         onContinue={handleContinue}
                     />
