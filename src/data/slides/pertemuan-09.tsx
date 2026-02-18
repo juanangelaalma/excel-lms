@@ -25,7 +25,7 @@ export const pertemuan09Slides: Slide[] = [
                 <li>📈 Analisis data time series</li>
                 <li>🗓️ Payroll dan sistem penggajian</li>
             </ul>
-            <TipBox type="info">
+            <TipBox variant="info">
                 Excel menyimpan tanggal sebagai angka! 1 = 1 Januari 1900
             </TipBox>
         </div>
@@ -71,7 +71,7 @@ export const pertemuan09Slides: Slide[] = [
             <p>Fungsi untuk mendapatkan tanggal/waktu saat ini:</p>
             <CodeBlock code="=TODAY()  // Tanggal hari ini" />
             <CodeBlock code="=NOW()    // Tanggal + waktu sekarang" />
-            <TipBox type="warning">
+            <TipBox variant="warning">
                 Kedua fungsi ini UPDATE otomatis setiap file dibuka atau dihitung ulang!
             </TipBox>
         </div>
@@ -118,7 +118,7 @@ export const pertemuan09Slides: Slide[] = [
             <CodeBlock code='=EOMONTH("2024-01-15", 0)  // 31-Jan-2024' />
             <CodeBlock code='=EOMONTH("2024-01-15", 1)  // 29-Feb-2024' />
             <CodeBlock code='=EOMONTH("2024-01-15", -1) // 31-Dec-2023' />
-            <TipBox type="tip">
+            <TipBox variant="tip">
                 Gunakan months=0 untuk akhir bulan yang sama, +1 untuk bulan depan, -1 untuk bulan lalu
             </TipBox>
         </div>
@@ -149,7 +149,7 @@ export const pertemuan09Slides: Slide[] = [
             <p>Contoh:</p>
             <CodeBlock code='=NETWORKDAYS("2024-01-01", "2024-01-31")' />
             <p className="text-sm text-text-secondary">Menghitung berapa hari kerja di Januari 2024</p>
-            <TipBox type="info">
+            <TipBox variant="info">
                 Akhir pekan = Sabtu & Minggu. Bisa tambahkan parameter holidays untuk tanggal libur!
             </TipBox>
         </div>
@@ -195,7 +195,7 @@ export const pertemuan09Slides: Slide[] = [
                 <li><strong>dddd, dd mmmm yyyy</strong> - Wednesday, 25 December 2024</li>
                 <li><strong>mm/dd/yyyy</strong> - 12/25/2024 (US format)</li>
             </ul>
-            <TipBox type="tip">
+            <TipBox variant="tip">
                 Gunakan Ctrl+1 → Number → Custom untuk format kustom!
             </TipBox>
         </div>
@@ -218,7 +218,7 @@ export const pertemuan09Slides: Slide[] = [
                     <li>Kombinasi date functions untuk kasus penggunaan kompleks</li>
                 </ul>
             </div>
-            <TipBox type="success">
+            <TipBox variant="success">
                 Sekarang waktunya praktik! Mari latihan di simulator 🚀
             </TipBox>
         </div>

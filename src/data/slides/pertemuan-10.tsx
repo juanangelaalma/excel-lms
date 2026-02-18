@@ -25,7 +25,7 @@ export const pertemuan10Slides: Slide[] = [
                 <li>🛡️ Melindungi formula dari input invalid</li>
                 <li>📊 Memastikan data siap untuk analisis</li>
             </ul>
-            <TipBox type="success">
+            <TipBox variant="success">
                 Data validation = gatekeeper untuk kualitas data Anda!
             </TipBox>
         </div>
@@ -44,7 +44,7 @@ export const pertemuan10Slides: Slide[] = [
             </ol>
             <CodeBlock code='Source: "Jakarta,Bandung,Surabaya"' />
             <p className="text-sm text-text-secondary">Atau pilih range: =A1:A5</p>
-            <TipBox type="tip">
+            <TipBox variant="tip">
                 Pisahkan items dengan koma jika ketik manual!
             </TipBox>
         </div>
@@ -60,7 +60,7 @@ export const pertemuan10Slides: Slide[] = [
                 <p className="text-sm">2. Source: =Sheet2!$A$1:$A$10</p>
                 <p className="text-sm">3. Gunakan absolute reference ($) agar tidak bergeser</p>
             </div>
-            <TipBox type="info">
+            <TipBox variant="info">
                 Keuntungan: Update list di satu tempat, dropdown otomatis update!
             </TipBox>
         </div>
@@ -77,7 +77,7 @@ export const pertemuan10Slides: Slide[] = [
                 <li>Beri nama: "ListKota"</li>
                 <li>Di validation source: =ListKota</li>
             </ol>
-            <TipBox type="tip">
+            <TipBox variant="tip">
                 Lebih mudah dibaca dan dikelola dibanding cell reference!
             </TipBox>
         </div>
@@ -126,7 +126,7 @@ export const pertemuan10Slides: Slide[] = [
             <p className="text-sm">Max 10 karakter</p>
             <CodeBlock code="=ISNUMBER(A2)" />
             <p className="text-sm">Harus angka</p>
-            <TipBox type="warning">
+            <TipBox variant="warning">
                 Formula harus mengembalikan TRUE/FALSE!
             </TipBox>
         </div>
@@ -157,7 +157,7 @@ export const pertemuan10Slides: Slide[] = [
                 <li>Excel akan tandai (circle merah) data yang invalid</li>
                 <li>Clear circles: Data Validation → Clear Validation Circles</li>
             </ol>
-            <TipBox type="info">
+            <TipBox variant="info">
                 Berguna untuk audit data yang sudah ada!
             </TipBox>
         </div>
@@ -194,7 +194,7 @@ export const pertemuan10Slides: Slide[] = [
                     <li>Circle invalid data untuk audit</li>
                 </ul>
             </div>
-            <TipBox type="success">
+            <TipBox variant="success">
                 Data validation = fondasi untuk data quality! 🎯
             </TipBox>
         </div>
