@@ -36,21 +36,21 @@ export function QuizResults({
                 />
 
                 <h2 className="text-4xl font-heading font-bold mb-4">
-                    {passed ? '🎉 Congratulations!' : '💪 Keep Trying!'}
+                    {passed ? '🎉 Selamat!' : '💪 Tetap Semangat!'}
                 </h2>
 
                 <p className="text-xl text-text-secondary mb-8">
                     {passed
-                        ? 'You passed the quiz! Great job!'
-                        : 'You need 70% to pass. Review the material and try again!'}
+                        ? 'Kamu lulus quiz! Kerja bagus!'
+                        : 'Kamu butuh 70% untuk lulus. Pelajari ulang materinya dan coba lagi!'}
                 </p>
 
                 {/* Score Display */}
                 <div className="bg-gradient-to-r from-duo-green to-duo-blue rounded-lg p-8 mb-8">
                     <div className="text-white">
-                        <p className="text-sm font-semibold mb-2">YOUR SCORE</p>
+                        <p className="text-sm font-semibold mb-2">SKOR ANDA</p>
                         <p className="text-6xl font-bold">{percentage}%</p>
-                        <p className="text-lg mt-2">{score} out of {totalQuestions} correct</p>
+                        <p className="text-lg mt-2">{score} dari {totalQuestions} benar</p>
                     </div>
                 </div>
 
@@ -58,20 +58,20 @@ export function QuizResults({
                 <div className="grid md:grid-cols-3 gap-4 mb-8">
                     <div className="bg-bg-accent p-4 rounded-lg">
                         <Target className="w-8 h-8 text-duo-green mx-auto mb-2" />
-                        <p className="text-sm text-text-secondary">Accuracy</p>
+                        <p className="text-sm text-text-secondary">Ketepatan</p>
                         <p className="text-2xl font-bold">{percentage}%</p>
                     </div>
 
                     <div className="bg-bg-accent p-4 rounded-lg">
                         <Trophy className="w-8 h-8 text-duo-orange mx-auto mb-2" />
-                        <p className="text-sm text-text-secondary">XP Earned</p>
+                        <p className="text-sm text-text-secondary">XP Diperoleh</p>
                         <p className="text-2xl font-bold">{passed ? (percentage === 100 ? '+100' : '+50') : '0'}</p>
                     </div>
 
                     <div className="bg-bg-accent p-4 rounded-lg">
                         <Star className="w-8 h-8 text-duo-purple mx-auto mb-2" />
                         <p className="text-sm text-text-secondary">Status</p>
-                        <p className="text-2xl font-bold">{passed ? 'PASSED' : 'FAILED'}</p>
+                        <p className="text-2xl font-bold">{passed ? 'LULUS' : 'BELUM LULUS'}</p>
                     </div>
                 </div>
 
@@ -83,7 +83,7 @@ export function QuizResults({
                             variant="outline"
                             size="lg"
                         >
-                            Retry Quiz
+                            Ulangi Quiz
                         </Button>
                     )}
 
@@ -92,7 +92,7 @@ export function QuizResults({
                             onClick={onContinue}
                             size="lg"
                         >
-                            Continue to Next Lesson →
+                            Lanjut ke Pelajaran Berikutnya →
                         </Button>
                     )}
 
@@ -101,7 +101,7 @@ export function QuizResults({
                         variant={passed ? 'outline' : 'default'}
                         size="lg"
                     >
-                        Back to Dashboard
+                        Kembali ke Dashboard
                     </Button>
                 </div>
             </div>

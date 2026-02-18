@@ -13,20 +13,20 @@ export const pertemuan03Slides: Slide[] = [
     {
         id: 2,
         type: 'content',
-        title: 'Why Mathematical Functions?',
+        title: 'Mengapa Mathematical Functions?',
         content: (
             <div className="space-y-4">
                 <p className="text-lg">
-                    Mathematical functions are the <strong>building blocks</strong> of Excel.
-                    They help you analyze data quickly without manual calculations.
+                    Mathematical functions adalah <strong>fondasi dasar</strong> Excel.
+                    Mereka membantu Anda menganalisis data dengan cepat tanpa perhitungan manual.
                 </p>
-                <p>In this lesson, you'll learn the 5 most essential functions:</p>
+                <p>Dalam pelajaran ini, Anda akan belajar 5 fungsi paling penting:</p>
                 <ul className="space-y-2">
-                    <li>📊 <strong>SUM</strong> - Add numbers together</li>
-                    <li>📈 <strong>AVERAGE</strong> - Calculate the mean</li>
-                    <li>🔢 <strong>COUNT</strong> - Count numeric values</li>
-                    <li>⬆️ <strong>MAX</strong> - Find the highest value</li>
-                    <li>⬇️ <strong>MIN</strong> - Find the lowest value</li>
+                    <li>📊 <strong>SUM</strong> - Menjumlahkan angka</li>
+                    <li>📈 <strong>AVERAGE</strong> - Menghitung rata-rata</li>
+                    <li>🔢 <strong>COUNT</strong> - Menghitung nilai numerik</li>
+                    <li>⬆️ <strong>MAX</strong> - Mencari nilai tertinggi</li>
+                    <li>⬇️ <strong>MIN</strong> - Mencari nilai terendah</li>
                 </ul>
             </div>
         ),
@@ -36,17 +36,17 @@ export const pertemuan03Slides: Slide[] = [
     {
         id: 3,
         type: 'content',
-        title: '1. SUM - Adding Numbers',
+        title: '1. SUM - Menjumlahkan Angka',
         content: (
             <div className="space-y-4">
                 <p className="text-lg">
-                    The <strong>SUM</strong> function adds all numbers in a range.
+                    Fungsi <strong>SUM</strong> menjumlahkan semua angka dalam range.
                 </p>
                 <p><strong>Syntax:</strong></p>
                 <p className="font-mono bg-gray-100 p-2 rounded">
                     =SUM(number1, number2, ...)
                 </p>
-                <p>You can add individual cells or entire ranges:</p>
+                <p>Anda bisa menjumlahkan cell individual atau seluruh range:</p>
             </div>
         ),
     },
@@ -55,26 +55,26 @@ export const pertemuan03Slides: Slide[] = [
     {
         id: 4,
         type: 'example',
-        title: 'SUM Examples',
+        title: 'Contoh SUM',
         content: (
-            <p>Here are different ways to use SUM:</p>
+            <p>Berikut berbagai cara menggunakan SUM:</p>
         ),
         examples: [
             {
                 formula: '=SUM(A1, A2, A3)',
-                description: 'Add three specific cells',
+                description: 'Menjumlahkan tiga cell tertentu',
             },
             {
                 formula: '=SUM(A1:A10)',
-                description: 'Add all values from A1 to A10',
+                description: 'Menjumlahkan semua nilai dari A1 sampai A10',
             },
             {
                 formula: '=SUM(A1:A5, C1:C5)',
-                description: 'Add multiple ranges together',
+                description: 'Menjumlahkan beberapa range sekaligus',
             },
             {
                 formula: '=SUM(100, 200, A1)',
-                description: 'Mix numbers and cell references',
+                description: 'Kombinasi angka dan referensi cell',
             },
         ],
     },
@@ -83,20 +83,20 @@ export const pertemuan03Slides: Slide[] = [
     {
         id: 5,
         type: 'content',
-        title: '2. AVERAGE - Finding the Mean',
+        title: '2. AVERAGE - Menghitung Rata-rata',
         content: (
             <div className="space-y-4">
                 <p className="text-lg">
-                    The <strong>AVERAGE</strong> function calculates the arithmetic mean
-                    (sum divided by count).
+                    Fungsi <strong>AVERAGE</strong> menghitung rata-rata aritmatika
+                    (jumlah dibagi banyaknya data).
                 </p>
                 <p><strong>Syntax:</strong></p>
                 <p className="font-mono bg-gray-100 p-2 rounded">
                     =AVERAGE(number1, number2, ...)
                 </p>
                 <p>
-                    For example, if you have quiz scores 80, 90, 85, AVERAGE returns 85
-                    (the sum 255 divided by 3).
+                    Contoh: jika ada nilai kuis 80, 90, 85, AVERAGE menghasilkan 85
+                    (jumlah 255 dibagi 3).
                 </p>
             </div>
         ),
@@ -106,19 +106,19 @@ export const pertemuan03Slides: Slide[] = [
     {
         id: 6,
         type: 'example',
-        title: 'AVERAGE Examples',
+        title: 'Contoh AVERAGE',
         examples: [
             {
                 formula: '=AVERAGE(B2:B10)',
-                description: 'Calculate average of values in B2 to B10',
+                description: 'Menghitung rata-rata nilai dari B2 sampai B10',
             },
             {
                 formula: '=AVERAGE(A1, A2, A3)',
-                description: 'Average of specific cells',
+                description: 'Rata-rata dari cell tertentu',
             },
             {
                 formula: '=AVERAGE(80, 90, 85, 95)',
-                description: 'Average of direct values (result: 87.5)',
+                description: 'Rata-rata dari nilai langsung (hasil: 87.5)',
             },
         ],
     },
@@ -127,18 +127,18 @@ export const pertemuan03Slides: Slide[] = [
     {
         id: 7,
         type: 'content',
-        title: '3. COUNT - Counting Numbers',
+        title: '3. COUNT - Menghitung Angka',
         content: (
             <div className="space-y-4">
                 <p className="text-lg">
-                    The <strong>COUNT</strong> function counts how many cells contain numbers.
+                    Fungsi <strong>COUNT</strong> menghitung berapa banyak cell yang berisi angka.
                 </p>
                 <p><strong>Syntax:</strong></p>
                 <p className="font-mono bg-gray-100 p-2 rounded">
                     =COUNT(value1, value2, ...)
                 </p>
                 <p className="text-sm text-text-secondary">
-                    ⚠️ Important: COUNT only counts numeric values. Empty cells and text are ignored!
+                    ⚠️ Penting: COUNT hanya menghitung nilai numerik. Cell kosong dan teks diabaikan!
                 </p>
             </div>
         ),
@@ -148,18 +148,18 @@ export const pertemuan03Slides: Slide[] = [
     {
         id: 8,
         type: 'example',
-        title: 'COUNT Examples',
+        title: 'Contoh COUNT',
         content: (
-            <p>See how COUNT works with different data:</p>
+            <p>Lihat cara kerja COUNT dengan berbagai data:</p>
         ),
         examples: [
             {
                 formula: '=COUNT(A1:A10)',
-                description: 'Count numeric values in range A1:A10',
+                description: 'Menghitung nilai numerik dalam range A1:A10',
             },
             {
                 formula: '=COUNT(100, 200, "text", 300)',
-                description: 'Result: 3 (text is ignored)',
+                description: 'Hasil: 3 (teks diabaikan)',
             },
         ],
     },
@@ -168,11 +168,11 @@ export const pertemuan03Slides: Slide[] = [
     {
         id: 9,
         type: 'content',
-        title: '4 & 5. MAX and MIN - Find Extremes',
+        title: '4 & 5. MAX dan MIN - Mencari Nilai Ekstrem',
         content: (
             <div className="space-y-4">
                 <p className="text-lg">
-                    <strong>MAX</strong> finds the largest value, <strong>MIN</strong> finds the smallest.
+                    <strong>MAX</strong> mencari nilai tertinggi, <strong>MIN</strong> mencari nilai terendah.
                 </p>
                 <div className="grid md:grid-cols-2 gap-4">
                     <div>
@@ -188,7 +188,7 @@ export const pertemuan03Slides: Slide[] = [
                         </p>
                     </div>
                 </div>
-                <p>These are perfect for finding top/bottom performers, highest/lowest prices, etc.</p>
+                <p>Fungsi ini sempurna untuk mencari performa terbaik/terburuk, harga tertinggi/terendah, dll.</p>
             </div>
         ),
     },
@@ -222,26 +222,26 @@ export const pertemuan03Slides: Slide[] = [
     {
         id: 11,
         type: 'tip',
-        title: 'Pro Tips & Best Practices',
+        title: 'Tips & Praktik Terbaik',
         tips: [
             <>
-                <strong>Use ranges instead of individual cells:</strong>
-                {' '}=SUM(A1:A100) is cleaner than =SUM(A1,A2,A3,...)
+                <strong>Gunakan range daripada cell individual:</strong>
+                {' '}=SUM(A1:A100) lebih rapi daripada =SUM(A1,A2,A3,...)
             </>,
             <>
-                <strong>Double-check your ranges:</strong>
-                {' '}Make sure you're selecting the correct cells. A common mistake is
-                selecting one cell too many or too few!
+                <strong>Periksa ulang range Anda:</strong>
+                {' '}Pastikan Anda memilih cell yang benar. Kesalahan umum adalah
+                memilih terlalu banyak atau terlalu sedikit!
             </>,
             <>
-                <strong>Empty cells are ignored:</strong>
-                {' '}These functions automatically skip blank cells, which is usually
-                what you want.
+                <strong>Cell kosong diabaikan:</strong>
+                {' '}Fungsi-fungsi ini otomatis melewati cell kosong, yang biasanya
+                memang yang Anda inginkan.
             </>,
             <>
-                <strong>Combine functions:</strong>
-                {' '}You can nest functions like =SUM(A1:A5)/COUNT(A1:A5) to manually
-                calculate an average.
+                <strong>Kombinasikan fungsi:</strong>
+                {' '}Anda bisa menyusun fungsi seperti =SUM(A1:A5)/COUNT(A1:A5) untuk menghitung
+                rata-rata secara manual.
             </>,
         ],
     },
@@ -250,16 +250,16 @@ export const pertemuan03Slides: Slide[] = [
     {
         id: 12,
         type: 'content',
-        title: 'Real-World Example: Sales Analysis',
+        title: 'Contoh Nyata: Analisis Penjualan',
         content: (
             <div className="space-y-4">
-                <p>Imagine you're analyzing monthly sales data:</p>
+                <p>Bayangkan Anda menganalisis data penjualan bulanan:</p>
                 <div className="bg-bg-accent p-4 rounded-lg">
                     <table className="w-full text-sm">
                         <thead>
                             <tr className="border-b-2">
-                                <th className="text-left p-2">Month</th>
-                                <th className="text-right p-2">Sales</th>
+                                <th className="text-left p-2">Bulan</th>
+                                <th className="text-right p-2">Penjualan</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -269,12 +269,12 @@ export const pertemuan03Slides: Slide[] = [
                         </tbody>
                     </table>
                 </div>
-                <p>You could use:</p>
+                <p>Anda bisa menggunakan:</p>
                 <ul className="space-y-2">
-                    <li>• <strong>=SUM(B2:B4)</strong> → Total sales: $163,000</li>
-                    <li>• <strong>=AVERAGE(B2:B4)</strong> → Avg sales: $54,333</li>
-                    <li>• <strong>=MAX(B2:B4)</strong> → Best month: $65,000</li>
-                    <li>• <strong>=MIN(B2:B4)</strong> → Worst month: $48,000</li>
+                    <li>• <strong>=SUM(B2:B4)</strong> → Total penjualan: $163,000</li>
+                    <li>• <strong>=AVERAGE(B2:B4)</strong> → Rata-rata: $54,333</li>
+                    <li>• <strong>=MAX(B2:B4)</strong> → Bulan terbaik: $65,000</li>
+                    <li>• <strong>=MIN(B2:B4)</strong> → Bulan terburuk: $48,000</li>
                 </ul>
             </div>
         ),
@@ -284,25 +284,25 @@ export const pertemuan03Slides: Slide[] = [
     {
         id: 13,
         type: 'practice',
-        title: 'Ready to Practice!',
+        title: 'Waktunya Praktik!',
         content: (
             <div className="space-y-4">
                 <p className="text-lg">
-                    You've learned the 5 essential mathematical functions! 🎉
+                    Anda sudah mempelajari 5 fungsi matematika penting! 🎉
                 </p>
                 <p>
-                    Next, you'll practice using them in our <strong>interactive Excel simulator</strong>.
+                    Selanjutnya, Anda akan praktik menggunakan fungsi-fungsi ini di <strong>simulator Excel interaktif</strong> kami.
                 </p>
-                <p>You'll complete 5 hands-on tasks that will test your understanding:</p>
+                <p>Anda akan menyelesaikan 5 tugas praktik untuk menguji pemahaman:</p>
                 <ul className="space-y-2">
-                    <li>✅ Task 1: Calculate totals with SUM</li>
-                    <li>✅ Task 2: Find averages with AVERAGE</li>
-                    <li>✅ Task 3: Count values with COUNT</li>
-                    <li>✅ Task 4: Find maximum values with MAX</li>
-                    <li>✅ Task 5: Find minimum values with MIN</li>
+                    <li>✅ Tugas 1: Menghitung total dengan SUM</li>
+                    <li>✅ Tugas 2: Mencari rata-rata dengan AVERAGE</li>
+                    <li>✅ Tugas 3: Menghitung nilai dengan COUNT</li>
+                    <li>✅ Tugas 4: Mencari nilai maksimum dengan MAX</li>
+                    <li>✅ Tugas 5: Mencari nilai minimum dengan MIN</li>
                 </ul>
                 <p className="text-duo-green font-semibold">
-                    You'll earn <strong>+15 XP</strong> for each correct task!
+                    Anda akan mendapat <strong>+15 XP</strong> untuk setiap tugas yang benar!
                 </p>
             </div>
         ),

@@ -115,8 +115,8 @@ export default function QuizPage() {
             <div className="min-h-screen bg-white">
                 <Header />
                 <div className="container py-16 text-center">
-                    <h1 className="text-3xl font-bold mb-4">Pertemuan not found</h1>
-                    <p className="text-text-secondary">Invalid pertemuan ID: {id}</p>
+                    <h1 className="text-3xl font-bold mb-4">Pertemuan tidak ditemukan</h1>
+                    <p className="text-text-secondary">ID pertemuan tidak valid: {id}</p>
                 </div>
                 <MobileNav />
             </div>
@@ -130,13 +130,13 @@ export default function QuizPage() {
                 <div className="container py-16 text-center">
                     <h1 className="text-3xl font-bold mb-4">{pertemuan.title}</h1>
                     <p className="text-text-secondary mb-8">
-                        Quiz not available yet for this pertemuan.
+                        Quiz belum tersedia untuk pertemuan ini.
                     </p>
                     <button
                         onClick={() => navigate('/learn')}
                         className="bg-duo-green text-white px-6 py-3 rounded-lg font-semibold"
                     >
-                        Back to Learn
+                        Kembali ke Belajar
                     </button>
                 </div>
                 <MobileNav />
@@ -177,7 +177,7 @@ export default function QuizPage() {
                         📝 Quiz - {pertemuan.title}
                     </h1>
                     <p className="text-text-secondary">
-                        Answer all questions correctly to pass (70% required)
+                        Jawab semua pertanyaan dengan benar untuk lulus (minimal 70%)
                     </p>
                 </div>
 
@@ -185,10 +185,10 @@ export default function QuizPage() {
                 <div className="mb-8">
                     <div className="flex justify-between items-center mb-2">
                         <span className="text-sm font-semibold text-text-secondary">
-                            Question {currentQuestionIndex + 1} of {quiz.length}
+                            Pertanyaan {currentQuestionIndex + 1} dari {quiz.length}
                         </span>
                         <span className="text-sm font-semibold text-duo-green">
-                            Score: {correctAnswers}/{currentQuestionIndex + (showFeedback && selectedAnswer === currentQuestion?.correctAnswer ? 1 : 0)}
+                            Skor: {correctAnswers}/{currentQuestionIndex + (showFeedback && selectedAnswer === currentQuestion?.correctAnswer ? 1 : 0)}
                         </span>
                     </div>
                     <Progress value={progress} />
@@ -247,7 +247,7 @@ export default function QuizPage() {
                                 disabled={selectedAnswer === null}
                                 className="w-full bg-duo-green text-white py-3 rounded-lg font-semibold disabled:opacity-50 disabled:cursor-not-allowed hover:bg-[#4CAF02] transition-colors"
                             >
-                                Submit Answer
+                                Kirim Jawaban
                             </button>
                         </div>
                     )}
