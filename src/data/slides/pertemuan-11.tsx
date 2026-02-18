@@ -24,7 +24,7 @@ export const pertemuan11Slides: Slide[] = [
                 <li>📈 Rata-rata nilai siswa yang lulus</li>
                 <li>🎯 Analisis per kategori, region, atau periode</li>
             </ul>
-            <TipBox type="success">
+            <TipBox variant="success">
                 Lebih powerful dan fleksibel dibanding filter manual!
             </TipBox>
         </div>
@@ -54,8 +54,8 @@ export const pertemuan11Slides: Slide[] = [
             <CodeBlock code='=SUMIF(B2:B10, ">100000", C2:C10)  // Lebih dari 100k' />
             <CodeBlock code='=SUMIF(B2:B10, ">=75", C2:C10)      // Lebih dari sama dengan 75' />
             <CodeBlock code='=SUMIF(B2:B10, "<>"&"Jakarta", C2:C10) // Bukan Jakarta' />
-            <TipBox type="tip">
-                Untuk operator, gunakan quotes: ">&100000". Untuk reference cell: "&gt;"&A1
+            <TipBox variant="tip">
+                Untuk operator, gunakan quotes: "&gt;100000". Untuk reference cell: "&gt;"&A1
             </TipBox>
         </div>
     },
@@ -109,7 +109,7 @@ export const pertemuan11Slides: Slide[] = [
             <CodeBlock code="=SUMIFS(sum_range, criteria_range1, criteria1, criteria_range2, criteria2, ...)" />
             <p>Contoh: Total penjualan Laptop di Jakarta</p>
             <CodeBlock code='=SUMIFS(D2:D50, A2:A50, "Laptop", B2:B50, "Jakarta")' />
-            <TipBox type="info">
+            <TipBox variant="info">
                 SUMIFS berbeda urutan parameter! Sum_range di awal.
             </TipBox>
         </div>
@@ -136,7 +136,7 @@ export const pertemuan11Slides: Slide[] = [
             <p className="text-sm">E2 berisi kriteria yang bisa diubah user</p>
             <CodeBlock code='=SUMIFS(D2:D50, A2:A50, F2, B2:B50, G2)' />
             <p className="text-sm">F2 dan G2 sebagai filter dropdown</p>
-            <TipBox type="tip">
+            <TipBox variant="tip">
                 Bisa dikombinasikan dengan Data Validation untuk dashboard interaktif!
             </TipBox>
         </div>
@@ -154,7 +154,7 @@ export const pertemuan11Slides: Slide[] = [
                 <p className="font-semibold mb-2">SUMIFS (Banyak Kriteria):</p>
                 <CodeBlock code="=SUMIFS(sum_range, criteria_range1, criteria1, range2, criteria2, ...)" />
             </div>
-            <TipBox type="warning">
+            <TipBox variant="warning">
                 Perhatikan urutan parameter berbeda!
             </TipBox>
         </div>
@@ -191,7 +191,7 @@ export const pertemuan11Slides: Slide[] = [
                     <li>Kombinasi dengan cell reference untuk filter dinamis</li>
                 </ul>
             </div>
-            <TipBox type="success">
+            <TipBox variant="success">
                 Mari praktik di simulator! 🚀
             </TipBox>
         </div>
