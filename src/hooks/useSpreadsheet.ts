@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import { HyperFormula, DetailedCellError } from 'hyperformula'
 
 export interface SpreadsheetData {
@@ -17,6 +17,13 @@ export function useSpreadsheet(initialData: (string | number | null)[][]) {
         hf.setSheetContent(numericSheetId, initialData) // Use numeric ID
         return numericSheetId
     })
+
+    // Reset sheet content when initialData changes (e.g., when task changes)
+    useEffect(() => {
+        if (initialData && initialData.length > 0) {
+            hf.setSheetContent(sheetId, initialData)
+        }
+    }, [initialData, hf, sheetId])
 
     const setCellValue = (row: number, col: number, value: string | number) => {
         try {

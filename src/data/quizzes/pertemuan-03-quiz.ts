@@ -13,11 +13,11 @@ export const pertemuan03Quiz: QuizQuestion[] = [
         options: [
             'Mengalikan semua nilai di A1 sampai A5',
             'Menjumlahkan semua nilai di A1 sampai A5',
-            'Menghitung rata-rata nilai di A1-A5',
-            'Mencari nilai tertinggi di A1-A5'
+            'Menghitung rata-rata nilai di A1 sampai A5',
+            'Mencari nilai tertinggi di A1 sampai A5'
         ],
         correctAnswer: 1,
-        explanation: 'SUM function adds all numbers in the specified range A1 through A5.',
+        explanation: 'SUM menjumlahkan semua angka dalam range yang ditentukan dari A1 sampai A5.',
     },
     {
         id: 2,
@@ -29,7 +29,7 @@ export const pertemuan03Quiz: QuizQuestion[] = [
             '80'
         ],
         correctAnswer: 1,
-        explanation: 'AVERAGE calculates the mean: (80+90+85+95+75) / 5 = 425 / 5 = 85.',
+        explanation: 'AVERAGE menghitung rata-rata: (80+90+85+95+75) / 5 = 425 / 5 = 85.',
     },
     {
         id: 3,
@@ -38,10 +38,10 @@ export const pertemuan03Quiz: QuizQuestion[] = [
             'COUNT menghitung semua cell, COUNTA hanya menghitung angka',
             'COUNT hanya menghitung angka, COUNTA menghitung cell yang tidak kosong',
             'Tidak ada perbedaan, keduanya sama',
-            'COUNT untuk satu kolom, COUNTA untuk multiple columns'
+            'COUNT untuk satu kolom, COUNTA untuk banyak kolom'
         ],
         correctAnswer: 1,
-        explanation: 'COUNT only counts cells with numbers, COUNTA counts all non-empty cells including text.',
+        explanation: 'COUNT hanya menghitung cell dengan angka, COUNTA menghitung semua cell yang tidak kosong termasuk teks.',
     },
     {
         id: 4,
@@ -53,7 +53,7 @@ export const pertemuan03Quiz: QuizQuestion[] = [
             '180'
         ],
         correctAnswer: 2,
-        explanation: 'MAX finds the largest value in the range, which is 300.',
+        explanation: 'MAX mencari nilai terbesar dalam range, yaitu 300.',
     },
     {
         id: 5,
@@ -65,6 +65,6 @@ export const pertemuan03Quiz: QuizQuestion[] = [
             '=LOWEST(C5:C15)'
         ],
         correctAnswer: 2,
-        explanation: 'The correct function name is MIN, not MINIMUM, LOW, or LOWEST.',
+        explanation: 'Nama fungsi yang benar adalah MIN, bukan MINIMUM, LOW, atau LOWEST.',
     },
 ]

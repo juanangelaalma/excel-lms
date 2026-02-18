@@ -24,14 +24,14 @@ export function QuizFeedback({ isCorrect, explanation, onNext }: QuizFeedbackPro
                     )}
                     <div className="flex-1">
                         <p className="font-semibold text-lg mb-2">
-                            {isCorrect ? 'Correct! 🎉' : 'Not quite right'}
+                            {isCorrect ? 'Benar! 🎉' : 'Kurang tepat'}
                         </p>
                         <p className="mb-4">{explanation}</p>
                         <button
                             onClick={onNext}
                             className="bg-white px-4 py-2 rounded-lg font-semibold shadow-sm hover:shadow-md transition-shadow"
                         >
-                            {isCorrect ? 'Next Question →' : 'Try Again'}
+                            {isCorrect ? 'Pertanyaan Berikutnya →' : 'Coba Lagi'}
                         </button>
                     </div>
                 </div>

@@ -116,8 +116,8 @@ export default function SimulatorPage() {
             <div className="min-h-screen bg-white">
                 <Header />
                 <div className="container py-16 text-center">
-                    <h1 className="text-3xl font-bold mb-4">Pertemuan not found</h1>
-                    <p className="text-text-secondary">Invalid pertemuan ID: {id}</p>
+                    <h1 className="text-3xl font-bold mb-4">Pertemuan tidak ditemukan</h1>
+                    <p className="text-text-secondary">ID pertemuan tidak valid: {id}</p>
                 </div>
                 <MobileNav />
             </div>
@@ -131,13 +131,13 @@ export default function SimulatorPage() {
                 <div className="container py-16 text-center">
                     <h1 className="text-3xl font-bold mb-4">{pertemuan.title}</h1>
                     <p className="text-text-secondary mb-8">
-                        No simulator tasks available for this pertemuan yet.
+                        Simulator belum tersedia untuk pertemuan ini.
                     </p>
                     <button
                         onClick={() => navigate(`/quiz/${pertemuanId}`)}
                         className="bg-duo-green text-white px-6 py-3 rounded-lg font-semibold"
                     >
-                        Skip to Quiz
+                        Langsung ke Quiz
                     </button>
                 </div>
                 <MobileNav />
@@ -156,7 +156,7 @@ export default function SimulatorPage() {
                         🎮 Excel Simulator - {pertemuan.title}
                     </h1>
                     <p className="text-text-secondary">
-                        Practice your skills with hands-on tasks!
+                        Latih kemampuan Anda dengan tugas langsung!
                     </p>
                 </div>
 
@@ -199,12 +199,12 @@ export default function SimulatorPage() {
                         </div>
 
                         <div className="mt-4 text-sm text-text-secondary bg-white p-4 rounded-lg border">
-                            <p className="font-semibold mb-2">💡 Tips:</p>
+                            <p className="font-semibold mb-2">💡 Cara Menggunakan:</p>
                             <ul className="space-y-1">
-                                <li>• Click a cell to select it</li>
-                                <li>• Double-click to edit directly</li>
-                                <li>• Use the formula bar to enter formulas</li>
-                                <li>• Press Enter to confirm, Escape to cancel</li>
+                                <li>• Klik cell untuk memilihnya</li>
+                                <li>• Double-klik untuk edit langsung</li>
+                                <li>• Gunakan formula bar untuk memasukkan formula</li>
+                                <li>• Tekan Enter untuk konfirmasi, Escape untuk batal</li>
                             </ul>
                         </div>
                     </div>

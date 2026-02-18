@@ -10,7 +10,7 @@ export const pertemuan04Slides: Slide[] = [
         title: 'Pertemuan 4',
         content: <div>
             <h2 className="text-4xl font-bold mb-4">Logical Functions</h2>
-            <p className="text-xl">IF, AND, OR, dan Nested IF untuk decision making 🧠</p>
+            <p className="text-xl">IF, AND, OR, dan Nested IF untuk pengambilan keputusan 🧠</p>
         </div>
     },
     {
@@ -144,14 +144,14 @@ export const pertemuan04Slides: Slide[] = [
     {
         id: 11,
         type: 'tip',
-        title: 'Common Use Cases',
+        title: 'Contoh Penggunaan Umum',
         content: <div className="space-y-3">
             <ul className="list-disc list-inside space-y-2 ml-4">
-                <li>📝 Grading system (A, B, C, D, E)</li>
-                <li>💰 Bonus calculation berdasarkan target</li>
-                <li>📊 Status approval (Approved/Rejected/Pending)</li>
-                <li>🎯 Discount tiers berdasarkan total belanja</li>
-                <li>⚠️ Alert system (Low stock, overdue, etc)</li>
+                <li>📝 Sistem penilaian (A, B, C, D, E)</li>
+                <li>💰 Perhitungan bonus berdasarkan target</li>
+                <li>📊 Status persetujuan (Approved/Rejected/Pending)</li>
+                <li>🎯 Tingkatan diskon berdasarkan total belanja</li>
+                <li>⚠️ Sistem peringatan (Stok rendah, terlambat, dll)</li>
             </ul>
         </div>
     },
@@ -164,7 +164,7 @@ export const pertemuan04Slides: Slide[] = [
             <div className="bg-duo-green/10 p-6 rounded-lg">
                 <p className="font-bold text-xl mb-2">Yang sudah dipelajari:</p>
                 <ul className="text-left list-disc list-inside space-y-1 ml-4">
-                    <li>IF function untuk decision making</li>
+                    <li>IF function untuk pengambilan keputusan</li>
                     <li>Nested IF untuk multiple conditions</li>
                     <li>AND function (semua harus TRUE)</li>
                     <li>OR function (salah satu TRUE)</li>
