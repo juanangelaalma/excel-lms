@@ -1,5 +1,5 @@
 import { useParams, useNavigate } from 'react-router-dom'
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useMemo } from 'react'
 import Header from '@/components/layout/Header'
 import MobileNav from '@/components/layout/MobileNav'
 import { SpreadsheetGrid } from '@/components/simulator/SpreadsheetGrid'
@@ -19,6 +19,108 @@ const taskRegistry: Record<number, SimulatorTask[]> = {
     // Add more: 5: pertemuan05Tasks, etc.
 }
 
+const COLUMNS = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J']
+
+// Inner spreadsheet component — remounts when key (taskIndex) changes
+function SpreadsheetArea({
+    task,
+    onCheckResult,
+}: {
+    task: SimulatorTask
+    onCheckResult: (correct: boolean) => void
+}) {
+    const [selectedCell, setSelectedCell] = useState<{ row: number; col: number } | null>(null)
+    const [formulaValue, setFormulaValue] = useState('')
+
+    const {
+        version,
+        setCellValue,
+        getCellValue,
+        getCellFormula,
+        getAllCellValues,
+    } = useSpreadsheet(task.initialData)
+
+    // gridData recomputes whenever version bumps (i.e., after every cell edit)
+    const gridData = useMemo(() => getAllCellValues(), [version]) // eslint-disable-line react-hooks/exhaustive-deps
+
+    const handleCellSelect = (row: number, col: number) => {
+        setSelectedCell({ row, col })
+    }
+
+    const handleFormulaBarSync = (value: string) => {
+        setFormulaValue(value)
+    }
+
+    const handleCellEdit = (row: number, col: number, value: string) => {
+        setCellValue(row, col, value)
+        // Reflect computed value back to formula bar
+        setTimeout(() => {
+            const formula = getCellFormula(row, col)
+            setFormulaValue(formula || value)
+        }, 0)
+    }
+
+    const handleFormulaSubmit = () => {
+        if (selectedCell && formulaValue !== '') {
+            setCellValue(selectedCell.row, selectedCell.col, formulaValue)
+            // Show computed result in formula bar after setting
+            setTimeout(() => {
+                if (selectedCell) {
+                    const formula = getCellFormula(selectedCell.row, selectedCell.col)
+                    setFormulaValue(formula || formulaValue)
+                }
+            }, 0)
+        }
+    }
+
+    const handleCheck = () => {
+        const { targetCell, expectedResult, acceptedFormulas } = task
+        const cellValue = getCellValue(targetCell.row, targetCell.col)
+        const cellFormula = getCellFormula(targetCell.row, targetCell.col)
+
+        // Value matching — handle numeric tolerance
+        let valueMatch = false
+        if (typeof expectedResult === 'number' && typeof cellValue === 'number') {
+            valueMatch = Math.abs((cellValue as number) - expectedResult) < 0.001
+        } else {
+            valueMatch = String(cellValue) === String(expectedResult)
+        }
+
+        // Formula matching
+        let formulaMatch = !acceptedFormulas
+        if (acceptedFormulas && cellFormula) {
+            const normalized = cellFormula.toUpperCase().replace(/\s/g, '')
+            formulaMatch = acceptedFormulas.some(
+                f => f.toUpperCase().replace(/\s/g, '') === normalized
+            )
+        }
+
+        onCheckResult(valueMatch || formulaMatch)
+    }
+
+    const targetCellRef = selectedCell
+        ? `${COLUMNS[task.targetCell.col]}${task.targetCell.row + 1}`
+        : `${COLUMNS[task.targetCell.col]}${task.targetCell.row + 1}`
+
+    const cellRef = selectedCell
+        ? `${COLUMNS[selectedCell.col]}${selectedCell.row + 1}`
+        : null
+
+    return {
+        gridData,
+        selectedCell,
+        formulaValue,
+        targetCellRef,
+        cellRef,
+        handleCellSelect,
+        handleFormulaBarSync,
+        handleCellEdit,
+        handleFormulaSubmit,
+        handleCheck,
+        getCellFormula,
+    }
+}
+
 export default function SimulatorPage() {
     const { id } = useParams()
     const navigate = useNavigate()
@@ -33,40 +135,59 @@ export default function SimulatorPage() {
     const [formulaValue, setFormulaValue] = useState('')
     const [feedback, setFeedback] = useState<'idle' | 'correct' | 'incorrect' | null>(null)
     const [showHint, setShowHint] = useState(false)
+    const [isTransitioning, setIsTransitioning] = useState(false)
 
     const currentTask = tasks?.[currentTaskIndex]
+
     const {
+        version,
         setCellValue,
         getCellValue,
         getCellFormula,
-        getAllCellValues
+        getAllCellValues,
     } = useSpreadsheet(currentTask?.initialData || [])
 
-    const gridData = getAllCellValues()
+    // gridData recomputes whenever version bumps
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+    const gridData = useMemo(() => getAllCellValues(), [version])
 
-    // Update formula bar when cell selection changes
+    // Target cell reference string (e.g. "B5")
+    const targetCellRef = currentTask
+        ? `${COLUMNS[currentTask.targetCell.col]}${currentTask.targetCell.row + 1}`
+        : 'A1'
+
+    // Sync formula bar when cell selection changes
     useEffect(() => {
         if (selectedCell) {
             const formula = getCellFormula(selectedCell.row, selectedCell.col)
             const value = getCellValue(selectedCell.row, selectedCell.col)
-            setFormulaValue(formula || String(value || ''))
+            setFormulaValue(formula || (value != null ? String(value) : ''))
         }
-    }, [selectedCell])
+    }, [selectedCell]) // eslint-disable-line react-hooks/exhaustive-deps
 
     const handleCellSelect = (row: number, col: number) => {
         setSelectedCell({ row, col })
     }
 
+    const handleFormulaBarSync = (value: string) => {
+        setFormulaValue(value)
+    }
+
     const handleCellEdit = (row: number, col: number, value: string) => {
         setCellValue(row, col, value)
         setFeedback(null)
+        // Update formula bar to reflect formula (if the value starts with =)
+        setTimeout(() => {
+            const formula = getCellFormula(row, col)
+            setFormulaValue(formula || value)
+        }, 0)
     }
 
     const handleFormulaSubmit = () => {
-        if (selectedCell && formulaValue) {
+        if (selectedCell && formulaValue !== '') {
             setCellValue(selectedCell.row, selectedCell.col, formulaValue)
-            setFormulaValue('')
             setFeedback(null)
+            // Done — version bump in setCellValue triggers grid re-render
         }
     }
 
@@ -77,15 +198,20 @@ export default function SimulatorPage() {
         const cellValue = getCellValue(targetCell.row, targetCell.col)
         const cellFormula = getCellFormula(targetCell.row, targetCell.col)
 
-        // Check by value
-        const valueMatch = cellValue === expectedResult
+        // Numeric tolerance check
+        let valueMatch = false
+        if (typeof expectedResult === 'number' && typeof cellValue === 'number') {
+            valueMatch = Math.abs((cellValue as number) - expectedResult) < 0.001
+        } else {
+            valueMatch = String(cellValue) === String(expectedResult)
+        }
 
-        // Check by formula (if specified)
+        // Formula check
         let formulaMatch = !acceptedFormulas
         if (acceptedFormulas && cellFormula) {
-            const normalizedFormula = cellFormula.toUpperCase().replace(/\s/g, '')
+            const normalized = cellFormula.toUpperCase().replace(/\s/g, '')
             formulaMatch = acceptedFormulas.some(
-                formula => formula.toUpperCase().replace(/\s/g, '') === normalizedFormula
+                f => f.toUpperCase().replace(/\s/g, '') === normalized
             )
         }
 
@@ -99,15 +225,21 @@ export default function SimulatorPage() {
 
     const handleNextTask = () => {
         if (currentTaskIndex < tasks.length - 1) {
-            setCurrentTaskIndex(currentTaskIndex + 1)
+            setIsTransitioning(true)
             setFeedback(null)
             setShowHint(false)
             setSelectedCell(null)
+            setFormulaValue('')
+
+            // Brief delay to show the loading state, then advance
+            setTimeout(() => {
+                setCurrentTaskIndex(prev => prev + 1)
+                setIsTransitioning(false)
+            }, 600)
         }
     }
 
     const handleComplete = () => {
-        // Navigate to quiz
         navigate(`/quiz/${pertemuanId}`)
     }
 
@@ -153,7 +285,7 @@ export default function SimulatorPage() {
                 {/* Simulator Header */}
                 <div className="mb-6">
                     <h1 className="text-3xl font-heading font-bold mb-2">
-                        🎮 Excel Simulator - {pertemuan.title}
+                        🎮 Excel Simulator — {pertemuan.title}
                     </h1>
                     <p className="text-text-secondary">
                         Latih kemampuan Anda dengan tugas langsung!
@@ -168,9 +300,12 @@ export default function SimulatorPage() {
                             totalTasks={tasks.length}
                             title={currentTask.title}
                             description={currentTask.description}
+                            targetCellRef={targetCellRef}
+                            xpReward={currentTask.xpReward}
                             hints={currentTask.hints}
                             feedback={feedback}
                             showHint={showHint}
+                            isTransitioning={isTransitioning}
                             onToggleHint={() => setShowHint(!showHint)}
                             onCheck={handleCheckAnswer}
                             onNext={handleNextTask}
@@ -178,8 +313,8 @@ export default function SimulatorPage() {
                         />
                     </div>
 
-                    {/* Right: Spreadsheet */}
-                    <div className="lg:col-span-2">
+                    {/* Right: Spreadsheet — key forces remount on task change */}
+                    <div className="lg:col-span-2" key={currentTaskIndex}>
                         <div className="bg-white rounded-lg shadow-md border-2 border-gray-200 overflow-hidden">
                             <FormulaBar
                                 selectedCell={selectedCell}
@@ -188,23 +323,32 @@ export default function SimulatorPage() {
                                 onSubmit={handleFormulaSubmit}
                             />
                             <div className="p-4">
-                                <SpreadsheetGrid
-                                    data={gridData}
-                                    selectedCell={selectedCell}
-                                    onCellSelect={handleCellSelect}
-                                    onCellEdit={handleCellEdit}
-                                    getCellFormula={getCellFormula}
-                                />
+                                {isTransitioning ? (
+                                    <div className="flex flex-col items-center justify-center py-16 gap-4">
+                                        <div className="w-10 h-10 border-4 border-duo-green border-t-transparent rounded-full animate-spin" />
+                                        <p className="text-text-secondary font-medium">Memuat soal berikutnya...</p>
+                                    </div>
+                                ) : (
+                                    <SpreadsheetGrid
+                                        data={gridData}
+                                        selectedCell={selectedCell}
+                                        targetCell={currentTask.targetCell}
+                                        onCellSelect={handleCellSelect}
+                                        onCellEdit={handleCellEdit}
+                                        getCellFormula={getCellFormula}
+                                        onFormulaBarSync={handleFormulaBarSync}
+                                    />
+                                )}
                             </div>
                         </div>
 
                         <div className="mt-4 text-sm text-text-secondary bg-white p-4 rounded-lg border">
                             <p className="font-semibold mb-2">💡 Cara Menggunakan:</p>
                             <ul className="space-y-1">
-                                <li>• Klik cell untuk memilihnya</li>
-                                <li>• Double-klik untuk edit langsung</li>
-                                <li>• Gunakan formula bar untuk memasukkan formula</li>
-                                <li>• Tekan Enter untuk konfirmasi, Escape untuk batal</li>
+                                <li>• <strong>Klik cell</strong> yang ditandai 🟡 untuk memilihnya</li>
+                                <li>• Ketik formula di <strong>formula bar di atas</strong>, lalu tekan <kbd className="bg-gray-100 border px-1 rounded text-xs">Enter</kbd></li>
+                                <li>• Atau <strong>double-klik cell</strong> untuk edit langsung di dalam cell</li>
+                                <li>• Klik <strong>"Cek Jawaban"</strong> setelah mengisi formula</li>
                             </ul>
                         </div>
                     </div>
