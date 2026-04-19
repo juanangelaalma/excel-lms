@@ -10,12 +10,14 @@ import { useGame } from '@/contexts/GameContext'
 import { getPertemuanById } from '@/data/curriculum'
 import { pertemuan03Tasks } from '@/data/simulator/pertemuan-03-tasks'
 import { pertemuan04Tasks } from '@/data/simulator/pertemuan-04-tasks'
+import { pertemuan05Tasks } from '@/data/simulator/pertemuan-05-tasks'
 import { SimulatorTask } from '@/data/simulator/pertemuan-03-tasks'
 
 // Task registry - add more as you create them
 const taskRegistry: Record<number, SimulatorTask[]> = {
     3: pertemuan03Tasks,
     4: pertemuan04Tasks,
+    5: pertemuan05Tasks,
     // Add more: 5: pertemuan05Tasks, etc.
 }
 

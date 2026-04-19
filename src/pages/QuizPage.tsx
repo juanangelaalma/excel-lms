@@ -13,6 +13,7 @@ import { pertemuan01Quiz } from '@/data/quizzes/pertemuan-01-quiz'
 import { pertemuan02Quiz } from '@/data/quizzes/pertemuan-02-quiz'
 import { pertemuan03Quiz } from '@/data/quizzes/pertemuan-03-quiz'
 import { pertemuan04Quiz } from '@/data/quizzes/pertemuan-04-quiz'
+import { pertemuan05Quiz } from '@/data/quizzes/pertemuan-05-quiz'
 import { QuizQuestion } from '@/data/quizzes/pertemuan-03-quiz'
 import { triggerConfetti } from '@/lib/confetti'
 
@@ -22,6 +23,7 @@ const quizRegistry: Record<number, QuizQuestion[]> = {
     2: pertemuan02Quiz,
     3: pertemuan03Quiz,
     4: pertemuan04Quiz,
+    5: pertemuan05Quiz,
     // Add more: 5: pertemuan05Quiz, etc.
 }
 
