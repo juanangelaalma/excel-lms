@@ -10,6 +10,8 @@ import { pertemuan02Slides } from '@/data/slides/pertemuan-02'
 import { pertemuan03Slides } from '@/data/slides/pertemuan-03'
 import { pertemuan04Slides } from '@/data/slides/pertemuan-04'
 import { pertemuan05Slides } from '@/data/slides/pertemuan-05'
+import { pertemuan06Slides } from '@/data/slides/pertemuan-06'
+import { pertemuan07Slides } from '@/data/slides/pertemuan-07'
 import { Slide } from '@/types'
 
 // Slide data registry - add more as you create them
@@ -19,6 +21,8 @@ const slideRegistry: Record<number, Slide[]> = {
     3: pertemuan03Slides,
     4: pertemuan04Slides,
     5: pertemuan05Slides,
+    6: pertemuan06Slides,
+    7: pertemuan07Slides,
 }
 
 export default function LessonPage() {
