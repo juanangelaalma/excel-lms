@@ -97,7 +97,7 @@ export const curriculum: Pertemuan[] = [
         xpReward: 90,
         month: 1,
         week: 4,
-        hasSimulator: false,
+        hasSimulator: true,
         topics: ['Relative References', 'Absolute ($)', 'Mixed References', 'Named Ranges'],
     },
 
